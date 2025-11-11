@@ -1,0 +1,387 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600&display=swap");
+
+.join {
+  background: #430B04;
+  color: #D7C6A5;
+  font-family: "Barlow Condensed", "Barlow Condensed Fallback", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Snowflake Animations */
+.join__snowflakes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.join__snowflake {
+  position: absolute;
+  font-size: 16px;
+  color: rgba(215, 198, 165, 0.7);
+  animation: joinSnowFall linear infinite;
+  user-select: none;
+}
+
+.join__snowflake:nth-child(1) {
+  left: 8%;
+  animation-duration: 12s;
+  animation-delay: 0s;
+}
+
+.join__snowflake:nth-child(2) {
+  left: 18%;
+  animation-duration: 9s;
+  animation-delay: 1s;
+}
+
+.join__snowflake:nth-child(3) {
+  left: 28%;
+  animation-duration: 15s;
+  animation-delay: 2s;
+}
+
+.join__snowflake:nth-child(4) {
+  left: 38%;
+  animation-duration: 11s;
+  animation-delay: 3s;
+}
+
+.join__snowflake:nth-child(5) {
+  left: 58%;
+  animation-duration: 13s;
+  animation-delay: 4s;
+}
+
+.join__snowflake:nth-child(6) {
+  left: 68%;
+  animation-duration: 10s;
+  animation-delay: 5s;
+}
+
+.join__snowflake:nth-child(7) {
+  left: 78%;
+  animation-duration: 14s;
+  animation-delay: 6s;
+}
+
+.join__snowflake:nth-child(8) {
+  left: 88%;
+  animation-duration: 8s;
+  animation-delay: 7s;
+}
+
+@keyframes joinSnowFall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* subtle festive texture (very light, still brand-correct) */
+.join::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(1200px 600px at -10% 0%, rgba(215, 198, 165, 0.06), transparent 60%),
+    radial-gradient(900px 500px at 110% 100%, rgba(215, 198, 165, 0.05), transparent 60%);
+  pointer-events: none;
+}
+
+.join__container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(56px, 7vw, 96px) clamp(20px, 5vw, 40px);
+  position: relative;
+  z-index: 2;
+}
+
+.join__header {
+  max-width: 860px;
+  margin-bottom: clamp(24px, 4vw, 36px);
+  animation: joinFadeInUp 0.8s ease-out;
+}
+
+@keyframes joinFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.join__eyebrow {
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 12px;
+  opacity: .9;
+}
+
+.join__title {
+  margin: 0 0 10px 0;
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: .02em;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+.join__title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, #D7C6A5, transparent);
+  animation: joinShimmer 3s ease-in-out infinite;
+}
+
+@keyframes joinShimmer {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1.2);
+  }
+}
+
+.join__lead {
+  margin: 0;
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.55;
+  opacity: .95;
+  animation: joinFadeInUp 0.8s ease-out 0.2s both;
+}
+
+.join__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 3vw, 28px);
+  margin-top: clamp(20px, 3vw, 28px);
+  animation: joinFadeInUp 0.8s ease-out 0.4s both;
+}
+
+@media (max-width: 860px) {
+  .join__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.join__card {
+  border: 1px solid rgba(215, 198, 165, .18);
+  background: rgba(215, 198, 165, .06);
+  backdrop-filter: blur(6px);
+  border-radius: 14px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .28);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: joinCardSlideIn 0.6s ease-out both;
+  position: relative;
+  overflow: hidden;
+}
+
+.join__card:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.join__card:nth-child(2) {
+  animation-delay: 0.7s;
+}
+
+@keyframes joinCardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.join__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(30, 127, 62, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.join__card:hover::before {
+  left: 100%;
+}
+
+.join__card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(215, 198, 165, .28);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+  background: rgba(215, 198, 165, .08);
+}
+
+.join__card-body {
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.join__card-title {
+  margin: 0 0 10px 0;
+  font-size: clamp(22px, 3.2vw, 30px);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.join__card:hover .join__card-title {
+  color: #1E7F3E;
+}
+
+.join__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  line-height: 1.55;
+  font-size: clamp(16px, 1.5vw, 18px);
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #D7C6A5;
+  margin-right: 10px;
+  transform: translateY(-1px);
+  transition: background 0.3s ease;
+}
+
+.join__card:hover .dot {
+  background: #1E7F3E;
+}
+
+.join__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* Transparent Christmas-focused button */
+.th-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, .85);
+  color: #D7C6A5;
+  background: transparent;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.th-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(30, 127, 62, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.th-btn:hover::before {
+  left: 100%;
+}
+
+.th-btn:hover {
+  background: #1E7F3E;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(30, 127, 62, 0.3);
+}
+
+/* Optional: quiet ghost style uses same base, just lower emphasis until hover */
+.join__btn--ghost {
+  opacity: .92;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .join__grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .join__snowflake:nth-child(n+5) {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .join__container {
+    padding: 60px 20px;
+  }
+  
+  .join__card-body {
+    padding: 20px;
+  }
+  
+  .join__actions {
+    flex-direction: column;
+  }
+  
+  .th-btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .join__snowflake {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .join__title::after {
+    width: 60px;
+  }
+  
+  .th-btn {
+    padding: 10px 18px;
+  }
+  
+  .join__snowflake:nth-child(n+4) {
+    display: none;
+  }
+}

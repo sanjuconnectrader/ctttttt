@@ -1,13 +1,18 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+
+/* Only set min-height so normal page scrolling remains on window */
+#root { min-height: 100%; }
+
+/* Media defaults */
+img, svg, video, canvas { display: block; max-width: 100%; }
+
+/* Route-change friendly scrolling */
+html { scroll-behavior: auto; }
+
+/* If you have a fixed header (e.g., 64px tall), offset anchor jumps */
+:root { --nav-height: 64px; }
+html { scroll-padding-top: var(--nav-height); }
+
+/* Optional: avoid scroll chaining into modals/drawers */
+body { overscroll-behavior-y: none; }
+mg, svg, video, canvas { display: block; max-width: 100%; }

@@ -1,0 +1,141 @@
+/* ===== Theme (Thryft) ===== */
+:root{
+  --th-bg:#430B04;          /* brand background */
+  --th-ink:#D7C6A5;         /* brand text */
+  --th-green:#2e8b57;       /* hover green for buttons */
+  --th-font:"Barlow Condensed","Barlow Condensed Fallback",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+
+/* ===== Footer layout ===== */
+.ft{
+  background: var(--th-bg);
+  color: var(--th-ink);
+  font-family: var(--th-font);
+}
+
+.ft__inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(32px, 6vw, 56px) clamp(20px, 5vw, 32px);
+  display: grid;
+  grid-template-columns: 1.1fr 2fr;
+  gap: clamp(20px, 4vw, 48px);
+  align-items: start;
+}
+
+.ft__brand{
+  display: grid;
+  gap: 10px;
+}
+
+/* Anchor wrapper for the logo */
+.ft__logo{
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Image logo — large but responsive */
+.ft__logoImg{
+  display: block;
+  height: 84px;           /* large desktop size */
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.25));
+}
+
+.ft__tagline{
+  margin: 0;
+  opacity: .9;
+  font-size: clamp(14px, 1.5vw, 16px);
+}
+
+/* nav columns */
+.ft__nav{
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: clamp(16px, 3vw, 32px);
+}
+
+.ft__title{
+  margin: 0 0 10px;
+  font-size: clamp(14px,1.6vw,16px);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .9;
+}
+
+.ft__list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.ft__list a{
+  color: var(--th-ink);
+  text-decoration: none;
+  opacity: .9;
+  transition: opacity .2s ease, transform .15s ease;
+}
+
+.ft__list a:hover{
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* CTA block */
+.ft__cta .ft__actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* Transparent Christmas-focused button (spec from you) */
+.th-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 16px;
+  border:1px solid rgba(255,255,255,.85);  /* thin white border */
+  border-radius:5px;                       /* 5px radius */
+  background:transparent;                  /* transparent default */
+  color:var(--th-ink);
+  text-decoration:none;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  font-size:12px;
+  transition: background-color .2s ease, color .2s ease, transform .15s ease;
+}
+.th-btn:hover{
+  background: var(--th-green); /* green on hover */
+  color: #fff;                 /* white text on hover */
+  transform: translateY(-1px);
+}
+
+/* bottom bar */
+.ft__bar{
+  border-top: 1px solid rgba(215,198,165,.18);
+  padding: 12px clamp(20px, 5vw, 32px);
+  text-align: center;
+  font-size: 12px;
+  opacity: .9;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1100px){
+  .ft__logoImg{ height: 76px; }
+}
+
+@media (max-width: 920px){
+  .ft__inner{ grid-template-columns: 1fr; }
+  .ft__nav{ grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .ft__logoImg{ height: 72px; }
+}
+
+@media (max-width: 560px){
+  .ft__nav{ grid-template-columns: 1fr; }
+  .ft__actions{ gap: 8px; }
+  .ft__logoImg{ height: 64px; }
+}
